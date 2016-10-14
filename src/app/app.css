@@ -18,13 +18,12 @@ body {
 
 .header,
 .footer {
-  background-color: #004C70;
+  background-color: #f0f0f0;
   height: 40px;
-  color: #fff;
+  color: black;
   text-align: center;
   line-height: 40px;
 }
-
 .header {
   position: relative;
 }
@@ -46,18 +45,25 @@ body {
 .footer {}
 
 .side-bar {
-  background-color: #00AAA0;
+  background-color: #f0f0f0;
   flex: 0 0 200px;
 }
 
 .sidebar-list {
   flex-flow: column nowrap;
+  list-style: none;
+  width: 100%;
+  margin: 0px;
+	padding: 0px;
 }
 
 .sidebar-list li {
   padding: 10px 5px;
   border-bottom: 1px solid #009990;
   cursor: pointer;
+  width: 100%;
+  padding-left:30px;
+  font-size:24px;
 }
 
 .center-content {
@@ -123,6 +129,10 @@ body {
 .show-menu {
   display: block !important;
 }
+.table{
+  width:100%;
+}
+
 /******************************** TABLET *********************************/
 
 @media only screen and (max-width:980px) {
@@ -155,6 +165,7 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
   }
+
   #section_1 {
     flex: 1 1 100%;
   }

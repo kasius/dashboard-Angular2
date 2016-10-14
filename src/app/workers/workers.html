@@ -1,55 +1,88 @@
-<h1>Workers!!!</h1>
-<table class="table table-stripped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>LastName</th>
-            <th>Age</th>
-            <th>Phone</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Charles</td>
-            <td>Mariano</td>
-            <td>26</td>
-            <td>+569 - 83773322</td>
-        </tr>
-         <tr>
-            <td>Charles</td>
-            <td>Mariano</td>
-            <td>26</td>
-            <td>+569 - 83773322</td>
-        </tr>
-         <tr>
-            <td>Charles</td>
-            <td>Mariano</td>
-            <td>26</td>
-            <td>+569 - 83773322</td>
-        </tr>
-         <tr>
-            <td>Charles</td>
-            <td>Mariano</td>
-            <td>26</td>
-            <td>+569 - 83773322</td>
-        </tr>
-         <tr>
-            <td>Charles</td>
-            <td>Mariano</td>
-            <td>26</td>
-            <td>+569 - 83773322</td>
-        </tr>
-         <tr>
-            <td>Charles</td>
-            <td>Mariano</td>
-            <td>26</td>
-            <td>+569 - 83773322</td>
-        </tr>
-         <tr>
-            <td>Charles</td>
-            <td>Mariano</td>
-            <td>26</td>
-            <td>+569 - 83773322</td>
-        </tr>
-    </tbody>
-</table>
+<div class="col-sm-12 col-md-12">
+          <!--<h1 class="page-header">Wrokers</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+          </div>-->
+
+          <h2 class="sub-header">Wrokers <a class="btn btn-success pull-right" [routerLink]="['/newWorker']">New</a></h2>
+          <div class="container-fluid" style="margin-top: 10px">
+      </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Last Name</th>
+                  <th>Age</th>
+                  <th>Perfil</th>
+                  <th>Action</th>
+                  <th>Action</th>
+                  <th>Action</th>
+                  <th>Action</th>
+                  <th>Action</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let work of workers'>
+                    <td></td>
+                  <td>{{work.name}}</td>
+                  <td>{{work.lastName}}</td>
+                  <td>{{work.age}}</td>
+                  <td>{{work.mail}}</td>
+                  <td>{{work.mail}}</td>
+                  <td>{{work.mail}}</td>
+                  <td>{{work.mail}}</td>
+                  <td>{{work.mail}}</td>
+                  <td></td>
+                  <td><a class="btn btn-primary">Asignar</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+<!--<h1>
+    Wrokers
+    <a class="btn btn-success pull-right" [routerLink]="['/newWorker']">New</a>
+</h1>
+<div class="container-fluid" style="margin-top: 10px">
+
+  <div class="table-row header">
+    <div class="text">Name</div>
+    <div class="text">Last Name</div>
+    <div class="text">Age</div>
+    <div class="text">Mail</div>
+    <div class="text">Perfil</div>
+    <div class="text">Action</div>
+  </div>
+
+  <div class="table-row" *ngFor='let work of workers'>
+    <div class="text">{{work.name}}</div>
+    <div class="text">{{work.lastName}}</div>
+    <div class="text">{{work.age}}</div>
+    <div class="text" title="vasan@example.com">{{work.mail}}</div>
+    <div class="text"></div>
+    <div class="text"><a class="btn btn-primary">Asignar</a></div>
+  </div>
+</div>-->
