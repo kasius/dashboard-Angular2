@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!--<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">-->
+    <title>Manager Aplication</title>
+    <base href="/">
+  </head>
+  <body>
+
+    <app>
+      Loading...
+    </app>
+
+    <script src="/polyfills.bundle.js"></script>
+    <script src="/vendor.bundle.js"></script>
+    <script src="/main.bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.hamburger').click(function() {    
+      $( ".side-bar" ).toggleClass( "show-menu", 1000 );
+    });
+  })
+</script>
+  </body>
+</html>
