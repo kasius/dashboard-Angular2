@@ -1,9 +1,22 @@
 export class Work {
-  name: string;
+  aspNetUserId: string;
+  contact: string;
+  geyserUserId: string;
   lastName: string;
-  age: number;
-  mail:string;
+  name:string;
+  role:number;
+  roleId:number;
+  timeZone:string;
 }
+
+export class WorkRegister {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  name: string;
+  lastName:string;
+}
+
 
 // export class Hero {
 //   constructor(

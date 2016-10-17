@@ -1,88 +1,77 @@
-<div class="col-sm-12 col-md-12">
-          <!--<h1 class="page-header">Wrokers</h1>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>-->
-
-          <h2 class="sub-header">Wrokers <a class="btn btn-success pull-right" [routerLink]="['/newWorker']">New</a></h2>
-          <div class="container-fluid" style="margin-top: 10px">
-      </div>
+<!--TABLE WORKER-->
+<h1>{{prueba.name}} {{prueba.lastName}}</h1>
+<div class="col-sm-12 col-md-12" [hidden]="!submitted || !forNewWorker">
+          <h2 class="sub-header">Wrokers <a class="btn btn-success pull-right" (click)="newWorker()" >New</a></h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Last Name</th>
-                  <th>Age</th>
-                  <th>Perfil</th>
-                  <th>Action</th>
-                  <th>Action</th>
-                  <th>Action</th>
-                  <th>Action</th>
-                  <th>Action</th>
-                  <th>Action</th>
+                  <!--<th>aspNetUserId</th>-->
+                  <th>contact</th>
+                  <!--<th>geyserUserId</th>-->
+                  <th>lastName</th>
+                  <th>name</th>
+                  <th>role</th>
+                  <th>roleId</th>
+                  <th>timeZone</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor='let work of workers'>
-                    <td></td>
-                  <td>{{work.name}}</td>
+                <tr *ngFor='let work of workers' > 
+                  <!--<td>{{work.aspNetUserId}}</td>-->
+                  <td>{{work.contact}}</td>
+                  <!--<td>{{work.geyserUserId}}</td>-->
                   <td>{{work.lastName}}</td>
-                  <td>{{work.age}}</td>
-                  <td>{{work.mail}}</td>
-                  <td>{{work.mail}}</td>
-                  <td>{{work.mail}}</td>
-                  <td>{{work.mail}}</td>
-                  <td>{{work.mail}}</td>
-                  <td></td>
-                  <td><a class="btn btn-primary">Asignar</a></td>
+                  <td>{{work.name}}</td>
+                  <td>{{work.role}}</td>
+                  <td>{{work.roleId}}</td>
+                  <td>{{work.timeZone}}</td>
+                  <td><a class="btn btn-primary" (click)="onSelect(work)">Asignar</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
+  </div>
+
+
+<!--EDIT WORKER-->
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form *ngIf="active" (ngSubmit)="onSubmit(model)" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="model.name" class="form-control" id="name"
+               required
+               [(ngModel)]="model.name" name="name"
+               #name="ngModel" >
+        <div [hidden]="name.valid || name.pristine" 
+             class="alert alert-danger">
+          Name is required
         </div>
-<!--<h1>
-    Wrokers
-    <a class="btn btn-success pull-right" [routerLink]="['/newWorker']">New</a>
-</h1>
-<div class="container-fluid" style="margin-top: 10px">
-
-  <div class="table-row header">
-    <div class="text">Name</div>
-    <div class="text">Last Name</div>
-    <div class="text">Age</div>
-    <div class="text">Mail</div>
-    <div class="text">Perfil</div>
-    <div class="text">Action</div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Alter lastName</label>
+        <input type="text" class="form-control" id="lastName"
+               [(ngModel)]="model.lastName" name="lastName" >
+      </div>
+       <div class="form-group">
+        <label for="age">Alter age</label>
+        <input type="number" class="form-control" id="age"
+               [(ngModel)]="model.age" name="age" >
+      </div>
+       <div class="form-group">
+        <label for="mail">Alter mail</label>
+        <input type="mail" class="form-control" id="mail"
+               [(ngModel)]="model.mail" name="mail" >
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
+    </form>
   </div>
+</div>
 
-  <div class="table-row" *ngFor='let work of workers'>
-    <div class="text">{{work.name}}</div>
-    <div class="text">{{work.lastName}}</div>
-    <div class="text">{{work.age}}</div>
-    <div class="text" title="vasan@example.com">{{work.mail}}</div>
-    <div class="text"></div>
-    <div class="text"><a class="btn btn-primary">Asignar</a></div>
-  </div>
-</div>-->
+
+<!--NEW WORKER-->
+<!--<new-worker [hidden]="forNewWorker"></new-worker>-->

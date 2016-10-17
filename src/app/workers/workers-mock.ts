@@ -1,14 +1,11 @@
 import { Work } from './work';
 
 export const WORKES: Work[] = [
-  {name: 'Carlos', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
-  {name: 'Pedro', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
-  {name: 'Pablo', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
-  {name: 'Juan', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
-  {name: 'Pedro', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
-  {name: 'Nicolas', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
-  {name: 'Jonathan', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
-  {name: 'Miguel', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'}
+  {id:1, name: 'Carlos', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
+  {id:2, name: 'Pedro', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
+  {id:3, name: 'Pablo', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
+  {id:4, name: 'Juan', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
+  {id:5, name: 'Pedro', lastName: 'Cifuentes', age: 34, mail: 'carlos@dreamsit.cl'},
 ];
 
 
