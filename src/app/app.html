@@ -7,10 +7,10 @@
   <main class="main-content">
     <div class="side-bar">
       <ul class="sidebar-list">
-        <li><a [routerLink]="['/']">Workers</a></li>
-        <li><a [routerLink]="['/users']">Users</a></li>
-        <li><a [routerLink]="['/plants']">Plants</a></li>
-        <li><a [routerLink]="['/business']">Business</a></li>
+        <li [routerLink]="['/']"><a (click)="changeItemMenu(0);" class="sidebar-list-item active-li" type="button">Workers</a></li>
+        <li [routerLink]="['/users']"><a (click)="changeItemMenu(1);" class="sidebar-list-item" type="button">Users</a></li>
+        <li [routerLink]="['/plants']"><a (click)="changeItemMenu(2);" class="sidebar-list-item" type="button">Plants</a></li>
+        <li [routerLink]="['/business']"><a (click)="changeItemMenu(3);" class="sidebar-list-item" type="button">Business</a></li>
       </ul>
 
     </div>

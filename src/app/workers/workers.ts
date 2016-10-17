@@ -71,7 +71,10 @@ export class Workers implements OnInit {
   }
   newWorker(): void{
     this._route.navigate(['newWorker']);
-    // this.forNewWorker = false;
+  }
+  assign(work: Work): void{
+    debugger;
+    this._route.navigate(['assign/',work.aspNetUserId]);
   }
 }
 

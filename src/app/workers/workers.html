@@ -27,7 +27,10 @@
                   <td>{{work.role}}</td>
                   <td>{{work.roleId}}</td>
                   <td>{{work.timeZone}}</td>
-                  <td><a class="btn btn-primary" (click)="onSelect(work)">Asignar</a></td>
+                  <td>
+                    <a class="btn btn-primary" (click)="assign(work)" >Asignar</a>
+                    <a class="btn btn-primary" (click)="onSelect(work)">Editar</a>
+                  </td>
                 </tr>
               </tbody>
             </table>
