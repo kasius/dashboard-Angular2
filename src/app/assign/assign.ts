@@ -36,7 +36,7 @@ export class Assign implements OnInit {
             this.workService.getWorker(userId)
             .subscribe(
                 worker => this.worker = worker, 
-                error => console.error('Error: ' + err),
+                error => console.error('Error:'),
                 () => console.log(this.worker)
               );
         }
@@ -51,14 +51,14 @@ export class Assign implements OnInit {
         this.accountService.registerRelayRace(this.worker)
           .subscribe(
               worker => this.worker = worker, 
-              error => console.error('Error: ' + err),
+              error => console.error('Error:'),
               () => console.log(this.worker)
             );
       }else if(cuentas.geyser == true){
         this.accountService.registerGeyser(this.worker)
             .subscribe(
                 worker => this.worker = worker, 
-                error => console.error('Error: ' + err),
+                error => console.error('Error:'),
                 () => console.log(this.worker)
               );
       }

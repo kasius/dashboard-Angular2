@@ -83,7 +83,7 @@ body {
 }
 
 .center-content {
-  background-color: #FF7182;
+  /*background-color: #FF7182;*/
   flex: 1 auto;
   display: flex;
   flex-flow: column nowrap;
@@ -113,11 +113,10 @@ body {
 .advertisements {
   flex: 1 auto;
   background-color: #fff;
-  display: flex;
   justify-content: center;
+  padding:15px;
+  overflow-y: auto;
 }
-
-.advertisements > * {}
 
 .advertisements .ads {
   width: 33.3333333%;

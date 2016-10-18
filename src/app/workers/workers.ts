@@ -1,14 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {Work} from './work';
-import {NewWorker} from '../newWorker/new-worker';
-import {WorkService} from './workers.service';
+import { Component, OnInit } from '@angular/core';
+import { Work } from './work';
+import { NewWorker } from '../newWorker/new-worker';
+import { WorkService } from './workers.service';
 
 
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { WORKES } from '../workers/workers-mock';
-import {Router} from '@angular/router';
-import { RouterModule }   from '@angular/router';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+
+// import { Component, OnInit } from '@angular/core';
+// import { TableData } from './table-data';
 
 @Component({
   selector: 'Workers',
@@ -25,28 +28,26 @@ export class Workers implements OnInit {
   errorMessage: string;
   model = new Work();
   workers: Work[];
+  workersRelayRace: Work[];
   submitted = true;
   forNewWorker = true;
   prueba = {
-    id:0,
-    name:"",
-    lastName:"",
-    age:0,
-    mail:""
+    id: 0,
+    name: "",
+    lastName: "",
+    age: 0,
+    mail: ""
   };
+
+  // sliderValue:number = 20;
 
   private id: number;
   private sub;
 
-  constructor(private workService: WorkService, private _route:Router,private _routeParams: ActivatedRoute) {
-    workService.getPeople()
-      .subscribe(
-        prueba => this.workers = prueba, 
-        error => console.error('Error: ' + err),
-        () => console.log(this.workers)
-      );
-    }
-  onSubmit(data) { 
+  constructor(private workService: WorkService, private _route: Router, private _routeParams: ActivatedRoute) {
+
+  }
+  onSubmit(data) {
     var info = data;
     var newWork = {
       id: 5,
@@ -55,42 +56,40 @@ export class Workers implements OnInit {
       age: data.age,
       mail: data.mail
     };
+    
     // this.addWorker(newWork);
-    this.submitted = true; }
+    this.submitted = true;
+  }
   active = true;
   getWorkers(): void {
-    this.workService.getWorkers().then(workers => this.workers = workers);
-    console.log(this.workService.getWorkers().then(workers => this.workers = workers));
+    // this.workService.getWorkers().then(workers => this.workers = workers);
+    this.workService.getPeople()
+      .subscribe(
+      prueba => this.workers = prueba,
+      error => console.error('Error: ' + err),
+      () => console.log(this.workers)
+      );
+  }
+  getWorkersRelayRace(): void {
+    this.workService.getWorkersRR()
+      .subscribe(
+      workersRelayRace => this.workersRelayRace = workersRelayRace,
+      error => console.error('Error: ' + err),
+      () => console.log(this.workersRelayRace)
+      );
   }
   ngOnInit(): void {
     this.getWorkers();
+    this.getWorkersRelayRace();
   }
   onSelect(work: Work): void {
     this.submitted = false;
     this.model = work;
   }
-  newWorker(): void{
-    this._route.navigate(['newWorker']);
+  newWorker(): void {
+    this._route.navigate(['newWorker/']);
   }
-  assign(work: Work): void{
-    this._route.navigate(['assign/',work.aspNetUserId]);
+  assign(work: Work): void {
+    this._route.navigate(['assign/', work.aspNetUserId]);
   }
 }
-
-
-// import { PeopleService } from './peopleService';
-
-// @Component({
-//   selector: 'my-app',
-//   template: `<div *ng-for="let person of people">{{person.name}}</div>`
-// })
-// export class App {
-//   constructor(peopleService: PeopleService) {
-//     peopleService.getPeople()
-//       .subscribe(
-//         people => this.people = people,
-//         error => console.error('Error: ' + err),
-//         () => console.log('Completed!')
-//       );
-//   }
-// }

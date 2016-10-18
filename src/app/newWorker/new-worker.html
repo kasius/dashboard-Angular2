@@ -1,53 +1,50 @@
-<div class="container">
-  <div>
-    <h1>New Worker</h1>
-    <form #workerNewForm="ngForm">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" [(ngModel)]="worker.name" id="worker.name" required name="name" >
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="form-group">
-            <label for="name">Last Name</label>
-            <input type="text" class="form-control" [(ngModel)]="worker.lastName" id="worker.lastName" required name="lastName" >
-          </div>
-        </div>
-        <div class="col-lg-6">
-         <div class="form-group">
-            <label for="name">Password</label>
-            <input type="password" class="form-control" [(ngModel)]="worker.password" id="worker.password" required name="password" >
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="form-group">
-            <label for="name">Confirm Password</label>
-            <input type="password" class="form-control" [(ngModel)]="worker.confirmPassword" id="worker.confirmPassword" required name="confirmPassword" >
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="form-group">
-            <label for="mail">Alter mail</label>
-            <input type="mail" class="form-control" [(ngModel)]="worker.email" id="email" name="worker.email" >
-          </div>
-        </div>
-      <!--<div class="form-group">
-        <label for="lastName">Alter lastName</label>
-        <input type="text" class="form-control" [(ngModel)]="worker.lastName" id="lastName"  name="worker.lastName" >
-      </div>
-       <div class="form-group">
-        <label for="age">Alter age</label>
-        <input type="number" class="form-control" [(ngModel)]="worker.age" id="age" name="worker.age" >
-      </div>-->
-      <div class="col-lg-12">
-      <button type="button" [disabled]="!workerNewForm.form.valid" (click)="newHero(worker)"  class="btn btn-default" >New Hero</button>
-      </div>
-      </div>
-    </form>
-  </div>
-</div>
+<h1>New Worker</h1>
+<form #workerNewForm="ngForm">
+	<div class="row-flex">
+		<div class="element-form-2">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" [(ngModel)]="worker.name" id="worker.name" required name="name">
+			</div>
+		</div>
+		<div class="element-form-2">
+			<div class="form-group">
+				<label for="name">Last Name</label>
+				<input type="text" class="form-control" [(ngModel)]="worker.lastName" id="worker.lastName" required name="lastName">
+			</div>
+		</div>
+		<div class="element-form-2">
+			<div class="form-group">
+				<label for="name">Password</label>
+				<input type="password" class="form-control" [(ngModel)]="worker.password" id="worker.password" required name="password">
+			</div>
+		</div>
+		<div class="element-form-2">
+			<div class="form-group">
+				<label for="name">Confirm Password</label>
+				<input type="password" class="form-control" [(ngModel)]="worker.confirmPassword" id="worker.confirmPassword" required name="confirmPassword">
+			</div>
+		</div>
+		<div class="element-form-2">
+			<div class="form-group">
+				<label for="mail">Alter mail</label>
+				<input type="email" class="form-control" [(ngModel)]="worker.email" id="email" required name="worker.email" >
+			</div>
+		</div>
+    <div class="element-form-2">
+			<h4>Relay Race <br /><input type="checkbox" [(ngModel)]="worker.rr" id="rr" required name="worker.rr" /></h4>
+		</div>
+    <div class="element-form-2">
+			<h4>Geyser<br /><input type="checkbox" [(ngModel)]="worker.geyser" id="geyser" required name="worker.geyser" /></h4>
+		</div>
+    <div class="element-form-2">
+			<h4>Ohsas<br /><input disabled type="checkbox" [(ngModel)]="worker.ohsas" id="ohsas" required name="worker.ohsas" /></h4>
+		</div>
+		<div class="element-form-1">
+			<button type="button" [disabled]="!workerNewForm.form.valid" (click)="newHero(worker)" class="btn btn-default">New Hero</button>
+		</div>
+	</div>
+</form>
 
 <!--<div class="container">
   <div>

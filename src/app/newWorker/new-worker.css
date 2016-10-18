@@ -4,3 +4,22 @@
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
+
+.row-flex{
+    width:100%;
+    list-style-type:none;
+    margin:20px auto;
+    padding:0;
+    /*Flexbox setup*/
+    display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.element-form-2{
+    width:24%;
+    margin:5px 2px; 
+}
+.element-form-1{
+  width:99%;
+    margin:5px 2px; 
+}

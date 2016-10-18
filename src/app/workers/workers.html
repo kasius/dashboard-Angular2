@@ -1,78 +1,109 @@
 <!--TABLE WORKER-->
 <h1>{{prueba.name}} {{prueba.lastName}}</h1>
-<div class="col-sm-12 col-md-12" [hidden]="!submitted || !forNewWorker">
-          <h2 class="sub-header">Wrokers <a class="btn btn-success pull-right" (click)="newWorker()" >New</a></h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <!--<th>aspNetUserId</th>-->
-                  <th>contact</th>
-                  <!--<th>geyserUserId</th>-->
-                  <th>lastName</th>
-                  <th>name</th>
-                  <th>role</th>
-                  <th>roleId</th>
-                  <th>timeZone</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor='let work of workers' > 
-                  <!--<td>{{work.aspNetUserId}}</td>-->
-                  <td>{{work.contact}}</td>
-                  <!--<td>{{work.geyserUserId}}</td>-->
-                  <td>{{work.lastName}}</td>
-                  <td>{{work.name}}</td>
-                  <td>{{work.role}}</td>
-                  <td>{{work.roleId}}</td>
-                  <td>{{work.timeZone}}</td>
-                  <td>
-                    <a class="btn btn-primary" (click)="assign(work)" >Asignar</a>
-                    <a class="btn btn-primary" (click)="onSelect(work)">Editar</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-  </div>
+<div [hidden]="!submitted || !forNewWorker">
+	<h2 class="sub-header">Usuarios <a style="margin-right:50px;" class="btn btn-success pull-right" (click)="newWorker()">New</a></h2>
+	<!--<input type="text" placeholder="search..." class="pull-right" />-->
+	
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#home">Users Geyser</a></li>
+		<li><a data-toggle="tab" href="#menu1">Users Relay Race</a></li>
+		<li><a data-toggle="tab" href="#menu2">Users Ohsas</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="home" class="tab-pane fade in active">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>lastName</th>
+							<th>name</th>
+							<th>role</th>
+							<th>roleId</th>
+							<th>timeZone</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor='let work of workers'>
+							<td>{{work.lastName}}</td>
+							<td>{{work.name}}</td>
+							<td>{{work.role}}</td>
+							<td>{{work.roleId}}</td>
+							<td>{{work.timeZone}}</td>
+							<td>
+								<a class="btn btn-primary" (click)="assign(work)">Asignar</a>
+								<a class="btn btn-primary" (click)="onSelect(work)">Editar</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="menu1" class="tab-pane fade">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>lastName</th>
+							<th>name</th>
+							<th>role</th>
+							<th>roleId</th>
+							<th>timeZone</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor='let workRr of workersRelayRace'>
+							<td>{{workRr.lastName}}</td>
+							<td>{{workRr.name}}</td>
+							<td>{{workRr.role}}</td>
+							<td>{{workRr.roleId}}</td>
+							<td>{{workRr.timeZone}}</td>
+							<td>
+								<a class="btn btn-primary" (click)="assign(workRr)">Asignar</a>
+								<a class="btn btn-primary" (click)="onSelect(workRr)">Editar</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="menu2" class="tab-pane fade">
+			<div class="table-responsive">
+				
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <!--EDIT WORKER-->
-<div class="container">
-  <div [hidden]="submitted">
-    <h1>Hero Form</h1>
-    <form *ngIf="active" (ngSubmit)="onSubmit(model)" #heroForm="ngForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" [(ngModel)]="model.name" class="form-control" id="name"
-               required
-               [(ngModel)]="model.name" name="name"
-               #name="ngModel" >
-        <div [hidden]="name.valid || name.pristine" 
-             class="alert alert-danger">
-          Name is required
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="lastName">Alter lastName</label>
-        <input type="text" class="form-control" id="lastName"
-               [(ngModel)]="model.lastName" name="lastName" >
-      </div>
-       <div class="form-group">
-        <label for="age">Alter age</label>
-        <input type="number" class="form-control" id="age"
-               [(ngModel)]="model.age" name="age" >
-      </div>
-       <div class="form-group">
-        <label for="mail">Alter mail</label>
-        <input type="mail" class="form-control" id="mail"
-               [(ngModel)]="model.mail" name="mail" >
-      </div>
-      <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
-    </form>
-  </div>
+<div [hidden]="submitted">
+	<h1>Hero Form</h1>
+	<form *ngIf="active" (ngSubmit)="onSubmit(model)" #heroForm="ngForm">
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" [(ngModel)]="model.name" class="form-control" id="name" required [(ngModel)]="model.name" name="name"
+				#name="ngModel">
+			<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+				Name is required
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="lastName">Alter lastName</label>
+			<input type="text" class="form-control" id="lastName" [(ngModel)]="model.lastName" name="lastName">
+		</div>
+		<div class="form-group">
+			<label for="age">Alter age</label>
+			<input type="number" class="form-control" id="age" [(ngModel)]="model.age" name="age">
+		</div>
+		<div class="form-group">
+			<label for="mail">Alter mail</label>
+			<input type="mail" class="form-control" id="mail" [(ngModel)]="model.mail" name="mail">
+		</div>
+		<button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+		<button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
+	</form>
 </div>
 
 
