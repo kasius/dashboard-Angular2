@@ -10,6 +10,8 @@ import {Workers} from './Workers/Workers';
 import {NewWorker} from './newWorker/new-worker';
 import {Assign} from './Assign/Assign';
 import {WorkService} from './Workers/Workers.service';
+import {AccountService} from './services/account.service';
+
 
 import {Business} from './business/business';
 import {Plants} from './plants/plants';
@@ -18,7 +20,7 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 @NgModule({
   declarations: [AppComponent, Users, Workers, Business, Plants, NewWorker,Assign],
   imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
-  providers   : [WorkService],
+  providers   : [WorkService, AccountService],
   bootstrap   : [AppComponent]
 })
 
