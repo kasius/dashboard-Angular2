@@ -36,8 +36,6 @@ export class WorkService {
 
   getWorkers(): Promise<Work[]> {
     var data = this.getPeople();
-    console.log("data");
-    console.log(data);
     return Promise.resolve(WORKES);
   }
 

@@ -10,15 +10,11 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-// import { Component, OnInit } from '@angular/core';
-// import { TableData } from './table-data';
-
 @Component({
-  selector: 'Workers',
+  selector: 'workers',
   styleUrls: ['./workers.css'],
   templateUrl: './workers.html',
-  providers: [WorkService],
-  directives: [NewWorker]
+  providers: [WorkService]
 })
 
 export class Workers implements OnInit {
@@ -66,7 +62,7 @@ export class Workers implements OnInit {
     this.workService.getPeople()
       .subscribe(
       prueba => this.workers = prueba,
-      error => console.error('Error: ' + err),
+      error => console.error('Error: '),
       () => console.log(this.workers)
       );
   }
@@ -74,7 +70,7 @@ export class Workers implements OnInit {
     this.workService.getWorkersRR()
       .subscribe(
       workersRelayRace => this.workersRelayRace = workersRelayRace,
-      error => console.error('Error: ' + err),
+      error => console.error('Error: '),
       () => console.log(this.workersRelayRace)
       );
   }
@@ -90,6 +86,6 @@ export class Workers implements OnInit {
     this._route.navigate(['newWorker/']);
   }
   assign(work: Work): void {
-    this._route.navigate(['assign/', work.aspNetUserId]);
+    this._route.navigate(['assign/', work.geyserUserId]);
   }
 }

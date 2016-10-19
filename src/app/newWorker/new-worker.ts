@@ -11,13 +11,12 @@ import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'new-worker',
+  selector: 'newworker',
   templateUrl: './new-worker.html',
   styleUrls: ['./new-worker.css'],
   providers: [WorkService, AccountService]
 })
 export class NewWorker {
-  // forNewWorker = true;
   worker = {
     email: "",
     password: "",
@@ -35,14 +34,12 @@ export class NewWorker {
   newHero(data) {
     if (data.rr == true) {
       this.accountService.registerRelayRace(data).subscribe(
-        // response => this.response = response, 
         error => console.error('Error: '),
         () => this._route.navigate(['workers'])
       );
     }
     if (data.geyser == true) {
       this.accountService.registerGeyser(data).subscribe(
-        // response => this.response = response, 
         error => console.error('Error RR: '),
         () => this._route.navigate(['workers'])
       );
@@ -50,7 +47,6 @@ export class NewWorker {
     if (data.ohsas == true) {
       debugger;
       this.accountService.registerOhsas(data).subscribe(
-        // response => this.response = response, 
         error => console.error('Error RR: '),
         () => this._route.navigate(['workers'])
       );

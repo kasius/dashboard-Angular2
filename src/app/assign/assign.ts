@@ -1,66 +1,86 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
-import {WorkService} from '../workers/workers.service';
-import {AccountService} from '../services/account.service';
+import { WorkService } from '../workers/workers.service';
+import { PlantService } from '../services/plant.service';
+import { ChargeService } from '../services/charge.service';
+import { AccountService } from '../services/account.service';
+
+//MODELS
+import { Plant } from '../model/plant.model';
+import { Charge } from '../model/charge.model';
+import { PlantCharge } from '../model/plantCharge.model';
 
 @Component({
   selector: 'assign',
   styleUrls: ['./assign.css'],
   templateUrl: './assign.html',
-  providers: [WorkService, AccountService]
+  providers: [WorkService, PlantService, ChargeService]
 })
 export class Assign implements OnInit {
   private id;
   private sub: any;
 
   worker = {
-    name:"",
-    lastName:"",
+    name: "",
+    lastName: "",
   };
 
-   modelCuentas = {
-      rr: false,
-      ohsas: false,
-      geyser: false
-    };
+  plants: Plant[];
+  charges: Charge[];
 
-  constructor(private route: ActivatedRoute, private workService: WorkService, private accountService: AccountService) {}
+  response: "";
 
-    ngOnInit() {
-      this.sub = this.route.params.subscribe(params => {
-        var userId = params['id'];
-        debugger;
-        if(userId){
-            this.workService.getWorker(userId)
-            .subscribe(
-                worker => this.worker = worker, 
-                error => console.error('Error:'),
-                () => console.log(this.worker)
-              );
-        }
-      });
-    }
-    asignarAccesoPlataformas(cuentas:modelCuentas){
+  modelAssig = new PlantCharge();
+
+  constructor(private route: ActivatedRoute, private workService: WorkService, private plantService: PlantService, private chargeService: ChargeService, private accountService: AccountService) { }
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      var userId = params['id'];
+      this.modelAssig.geyserUserId = userId;
       debugger;
-      console.log("cuentas");
-      console.log(cuentas);
-
-      if(cuentas.rr == true){
-        this.accountService.registerRelayRace(this.worker)
+      if (userId) {
+        this.workService.getWorker(userId)
           .subscribe(
-              worker => this.worker = worker, 
-              error => console.error('Error:'),
-              () => console.log(this.worker)
-            );
-      }else if(cuentas.geyser == true){
-        this.accountService.registerGeyser(this.worker)
-            .subscribe(
-                worker => this.worker = worker, 
-                error => console.error('Error:'),
-                () => console.log(this.worker)
-              );
+          worker => this.worker = worker,
+          error => console.error('Error:'),
+          () => console.log(this.worker)
+          );
+        this.plantService.getPlants()
+          .subscribe(
+          plants => this.plants = plants,
+          error => console.error('Error:'),
+          () => console.log(this.plants)
+          );
+        this.chargeService.getCharges()
+          .subscribe(
+          charges => this.charges = charges,
+          error => console.error('Error:'),
+          () => console.log(this.charges)
+          );
       }
+    });
+  }
+  asignarAccesoPlataformas() {
+    if (this.modelAssig.plantId === "" || this.modelAssig.chargeId === "") {
+      alert("debe ingresar planta y cargo!!!");
+    } else {
+      this.accountService.asignacionPlantCharge(this.modelAssig)
+        .subscribe(
+        response => this.response = response,
+        error => console.error('Error:'),
+        () => console.log("response: " + this.response)
+        );
     }
+  }
+  getValuePlants(elementId) {
+    this.modelAssig.plantId = elementId;
+    debugger;
+  }
+  getValueCharges(elementId) {
+    this.modelAssig.chargeId = elementId;
+    debugger;
+  }
 }

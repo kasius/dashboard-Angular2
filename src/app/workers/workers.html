@@ -5,20 +5,20 @@
 	<!--<input type="text" placeholder="search..." class="pull-right" />-->
 	
 	<ul class="nav nav-tabs">
-		<li class="active"><a data-toggle="tab" href="#home">Users Geyser</a></li>
-		<li><a data-toggle="tab" href="#menu1">Users Relay Race</a></li>
-		<li><a data-toggle="tab" href="#menu2">Users Ohsas</a></li>
+		<li class="active"><a data-toggle="tab" href="#usersGeyser">Users Geyser</a></li>
+		<li><a data-toggle="tab" href="#usersRR">Users Relay Race</a></li>
+		<li><a data-toggle="tab" href="#usersOhsas">Users Ohsas</a></li>
 	</ul>
 	<div class="tab-content">
-		<div id="home" class="tab-pane fade in active">
+		<div id="usersGeyser" class="tab-pane fade in active">
 			<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>lastName</th>
 							<th>name</th>
-							<th>role</th>
-							<th>roleId</th>
+							<th>Cargo</th>
+							<th>Planta</th>
 							<th>timeZone</th>
 							<th>Actions</th>
 						</tr>
@@ -27,8 +27,12 @@
 						<tr *ngFor='let work of workers'>
 							<td>{{work.lastName}}</td>
 							<td>{{work.name}}</td>
-							<td>{{work.role}}</td>
-							<td>{{work.roleId}}</td>
+							<td>{{work.charge.name}}</td>
+							<td>
+								<ol>
+									<li *ngFor='let item of work.plants'>{{item.name}}</li>
+								</ol>
+							</td>
 							<td>{{work.timeZone}}</td>
 							<td>
 								<a class="btn btn-primary" (click)="assign(work)">Asignar</a>
@@ -39,7 +43,7 @@
 				</table>
 			</div>
 		</div>
-		<div id="menu1" class="tab-pane fade">
+		<div id="usersRR" class="tab-pane fade">
 			<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
@@ -68,7 +72,7 @@
 				</table>
 			</div>
 		</div>
-		<div id="menu2" class="tab-pane fade">
+		<div id="usersOhsas" class="tab-pane fade">
 			<div class="table-responsive">
 				
 			</div>
@@ -105,7 +109,3 @@
 		<button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
 	</form>
 </div>
-
-
-<!--NEW WORKER-->
-<!--<new-worker [hidden]="forNewWorker"></new-worker>-->
