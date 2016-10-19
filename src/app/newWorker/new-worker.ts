@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./new-worker.css'],
   providers: [WorkService, AccountService]
 })
+
 export class NewWorker {
   worker = {
     email: "",
