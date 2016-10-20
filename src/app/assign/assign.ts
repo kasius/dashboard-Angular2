@@ -27,6 +27,9 @@ export class Assign implements OnInit {
     lastName: "",
   };
 
+  plantWorker: [];
+  chargeWorker: "";
+
   plants: Plant[];
   charges: Charge[];
 
@@ -44,9 +47,9 @@ export class Assign implements OnInit {
       if (userId) {
         this.workService.getWorker(userId)
           .subscribe(
-          worker => this.worker = worker,
+          worker => { this.worker = worker; this.chargeWorker = worker.charge; this.plantWorker = worker.plants;}, 
           error => console.error('Error:'),
-          () => console.log(this.worker)
+          () => {console.log("this.plantWorker +  this.chargeWorker: " + this.chargeWorker.name + ' - ' + this.plantWorker[0].name); console.log(this.plantWorker);}
           );
         this.plantService.getPlants()
           .subscribe(

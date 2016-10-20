@@ -42,7 +42,7 @@ export class AccountService {
             headers.append('Authorization', 'Bearer ' + token);
         }
         let body = JSON.stringify(account);
-        return this.http.post('http://ohsasdemoapi.azurewebsites.net/api/Account/Register', body, { headers: headers })
+        return this.http.post('https://ohsascloudapi.azurewebsites.net/api/Account/Register', body, { headers: headers })
             .map(response => response.json());
     }
     asignacionPlantCharge(plantCharge: PlantCharge){

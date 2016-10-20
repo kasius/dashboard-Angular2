@@ -7,7 +7,13 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading"><b>Planta</b></div>
 			<ul class="list-group" *ngFor='let plant of plants'>
-				<li class="list-group-item">{{plant.name}} <input type="radio" (click)="getValuePlants(plant.plantId)" value="{{plant.plantId}}" #price name="plant" /></li>
+				<li class="list-group-item">{{plant.name}} 
+					<input type="checkbox" 
+					(click)="getValuePlants(plant.plantId)" 
+					value="{{plant.plantId}}" 
+					#price name="plant"
+					[checked]="plantWorker.indexOf(option) <= 0" /></li> 
+					<!--[checked]="plantWorker.indexOf(plant) != -1"-->
 			</ul>
 		</div>
 	</div>
