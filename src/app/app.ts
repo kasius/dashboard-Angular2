@@ -7,6 +7,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   changeItemMenu(position: number): void{
+    debugger;
     var items = document.getElementsByClassName("sidebar-list-item");
     for (var _i = 0; _i < items.length; _i++) {
       var num = items[_i];

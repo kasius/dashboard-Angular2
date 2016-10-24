@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
 import {Users} from './users/users';
 import {Workers} from './Workers/Workers';
-import {Business} from './business/business';
+import {Customers} from './customers/customers';
 import {Plants} from './plants/plants';
 import {NewWorker} from './newWorker/new-worker';
 import {Assign} from './Assign/Assign';
@@ -12,7 +12,7 @@ export const rootRouterConfig: Routes = [
   {path: 'workers', component: Workers},
   {path: 'users', component: Users},
   {path: 'plants', component: Plants},
-  {path: 'business', component: Business},
+  {path: 'customers', component: Customers},
   {path: 'newWorker', component: NewWorker},
   {path: 'assign/:id', component: Assign}
 ];

@@ -2,31 +2,32 @@
 <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>N°</th>
                   <th>Name</th>
-                  <th>lastName</th>
-                  <th>name</th>
-                  <th>role</th>
-                  <th>roleId</th>
-                  <th>timeZone</th>
-                  <th>timeZone</th>
-                  <th>timeZone</th>
-                  <th>Actions</th>
+                  <th>Customer</th>
+                  <th>Logo</th>
+                  <th>CustomerId</th>
+                  <th>Equipments</th>
+                  <th>Lines</th>
+                  <th>Areas</th>
+                  <th>Events</th>
                 </tr>
               </thead>
               <tbody>
-                <tr > 
-                  <td>Horcones</td>
-                  <td>-----------</td>
-                  <td>-----------</td>
-                  <td>-----------</td>
-                  <td>-----------</td>
-                  <td>-----------</td>
-                  <td>-----------</td>
-                  <td>----------- -----------</td>
+                <tr *ngFor='let plant of plants'> 
+                  <td>{{plant.plantId}}</td>
+                  <td>{{plant.name}}</td>
+                  <td>{{plant.customer}}</td>
+                  <td>{{plant.logo}}</td>
+                  <td>{{plant.customerId}}</td>
+                  <td>{{plant.equipments}}</td>
+                  <td>{{plant.productionLines}}</td>
+                  <td>{{plant.areas}}</td>
+                  <td>{{plant.maintenanceEvents}}</td>
                   <td>
                   </td>
                 </tr>
-                <tr > 
+                <!--<tr > 
                     <td>Santa Fe</td>
                     <td>-----------</td>
                   <td>-----------</td>
@@ -61,6 +62,6 @@
                   <td>----------- -----------</td>
                   <td>
                   </td>
-                </tr>
+                </tr>-->
               </tbody>
             </table>

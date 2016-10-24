@@ -13,12 +13,12 @@ import {WorkService} from './Workers/Workers.service';
 import {AccountService} from './services/account.service';
 
 
-import {Business} from './business/business';
+import {Customers} from './customers/customers';
 import {Plants} from './plants/plants';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, Users, Workers, Business, Plants, NewWorker,Assign],
+  declarations: [AppComponent, Users, Workers, Customers, Plants, NewWorker,Assign],
   imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
   providers   : [WorkService, AccountService],
   bootstrap   : [AppComponent]

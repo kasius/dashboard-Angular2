@@ -27,7 +27,6 @@ export class Assign implements OnInit {
     lastName: "",
   };
 
-  plantWorker: [];
   chargeWorker: "";
 
   plants: Plant[];
@@ -37,19 +36,19 @@ export class Assign implements OnInit {
 
   modelAssig = new PlantCharge();
 
-  constructor(private route: ActivatedRoute, private workService: WorkService, private plantService: PlantService, private chargeService: ChargeService, private accountService: AccountService) { }
-
+  constructor(private route: ActivatedRoute, private workService: WorkService, private plantService: PlantService, private chargeService: ChargeService, private accountService: AccountService) {
+    
+   }
+// this.chargeWorker = worker.charge; this.plantWorker = worker.plants;
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       var userId = params['id'];
       this.modelAssig.geyserUserId = userId;
-      debugger;
       if (userId) {
         this.workService.getWorker(userId)
           .subscribe(
-          worker => { this.worker = worker; this.chargeWorker = worker.charge; this.plantWorker = worker.plants;}, 
+          worker => this.worker = worker,  
           error => console.error('Error:'),
-          () => {console.log("this.plantWorker +  this.chargeWorker: " + this.chargeWorker.name + ' - ' + this.plantWorker[0].name); console.log(this.plantWorker);}
           );
         this.plantService.getPlants()
           .subscribe(

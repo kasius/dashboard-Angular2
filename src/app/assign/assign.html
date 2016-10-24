@@ -12,8 +12,7 @@
 					(click)="getValuePlants(plant.plantId)" 
 					value="{{plant.plantId}}" 
 					#price name="plant"
-					[checked]="plantWorker.indexOf(option) <= 0" /></li> 
-					<!--[checked]="plantWorker.indexOf(plant) != -1"-->
+					[checked]="plants.indexOf(plant) != -1" /></li> 
 			</ul>
 		</div>
 	</div>

@@ -1,32 +1,24 @@
-<h1>Business!!!</h1>
+<h1>Customers!!!</h1>
 <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>N°</th>
                   <th>Name</th>
-                  <th>lastName</th>
-                  <th>name</th>
-                  <th>role</th>
-                  <th>roleId</th>
-                  <th>timeZone</th>
-                  <th>timeZone</th>
-                  <th>timeZone</th>
+                  <th>N° Plants</th>
+                  <th>logo</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr > 
-                  <td>Arauco</td>
-                  <td>----------------</td>
-                  <td>----------------</td>
-                  <td>----------------</td>
-                  <td>----------------</td>
-                  <td>----------------</td>
-                  <td>----------------</td>
-                  <td>---------------- ----------------</td>
+                <tr *ngFor='let customer of customers'> 
+                  <td>{{customer.customerId}}</td>
+                  <td>{{customer.name}}</td>
+                  <td>{{customer.plants}}</td>
+                  <td>{{customer.logo}}</td>
                   <td>
                   </td>
                 </tr>
-                <tr > 
+                <!--<tr > 
                     <td>CMPC</td>
                     <td>----------------</td>
                   <td>----------------</td>
@@ -109,6 +101,6 @@
                   <td>---------------- ----------------</td>
                   <td>
                   </td>
-                </tr>
+                </tr>-->
               </tbody>
             </table>

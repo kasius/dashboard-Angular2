@@ -3,7 +3,7 @@
 <div [hidden]="!submitted || !forNewWorker">
 	<h2 class="sub-header">Usuarios <a style="margin-right:50px;" class="btn btn-success pull-right" (click)="newWorker()">New</a></h2>
 	<!--<input type="text" placeholder="search..." class="pull-right" />-->
-	
+
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#usersGeyser">Users Geyser</a></li>
 		<li><a data-toggle="tab" href="#usersRR">Users Relay Race</a></li>
@@ -19,7 +19,6 @@
 							<th>name</th>
 							<th>Cargo</th>
 							<th>Planta</th>
-							<th>timeZone</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -33,7 +32,6 @@
 									<li *ngFor='let item of work.plants'>{{item.name}}</li>
 								</ol>
 							</td>
-							<td>{{work.timeZone}}</td>
 							<td>
 								<a class="btn btn-primary" (click)="assign(work)">Asignar</a>
 								<a class="btn btn-primary" (click)="onSelect(work)">Editar</a>
@@ -74,7 +72,7 @@
 		</div>
 		<div id="usersOhsas" class="tab-pane fade">
 			<div class="table-responsive">
-				
+
 			</div>
 		</div>
 	</div>
