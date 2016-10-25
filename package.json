@@ -28,8 +28,11 @@
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
     "webpack-merge": "^0.8.4",
-    "concurrently": "^2.0.0",
-    "typings": "^1.0.4",
+    "lite": "node_modules\\.bin\\lite-server",
+    "tsc": "node_modules\\.bin\\tsc",
+    "concurrently": "node_modules\\.bin\\concurrently",
+    "tsc:w": "node_modules\\.bin\\tsc -w",
+    "typings": "node_modules\\.bin\\typings"
   },
   "dependencies": {
     "@angular/common": "2.0.0",
