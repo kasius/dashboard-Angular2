@@ -1,6 +1,9 @@
 {
   "name": "angular2-seed",
   "version": "1.0.0",
+  "engines": {
+    "node": "5.4.0"
+  },
   "description": "A simple starter Angular2 project",
   "scripts": {
     "build": "webpack --inline --colors --progress --display-error-details --display-cached",
@@ -24,7 +27,9 @@
     "typescript": "^2.0.2",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "webpack-merge": "^0.8.4"
+    "webpack-merge": "^0.8.4",
+    "concurrently": "^2.0.0",
+    "typings": "^1.0.4",
   },
   "dependencies": {
     "@angular/common": "2.0.0",
