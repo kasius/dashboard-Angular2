@@ -8,7 +8,7 @@ import { ChargeService } from '../services/charge.service';
 import { AccountService } from '../services/account.service';
 
 //MODELS
-import { Plant } from '../model/plant.model';
+import { Plant } from '../model/plants/plant.model';
 import { Charge } from '../model/charge.model';
 import { PlantCharge } from '../model/plantCharge.model';
 
